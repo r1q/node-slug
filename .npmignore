@@ -1,2 +1,6 @@
-Cakefile
-src/
+.github
+.karma.config.js
+.nyc_output/
+benchmark/
+coverage/
+test/

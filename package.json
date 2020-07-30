@@ -1,12 +1,12 @@
 {
     "name": "slug",
     "description": "slugifies even utf-8 chars!",
-    "version": "1.1.0",
-    "homepage": "https://github.com/Trott/node-slug",
+    "version": "3.3.2",
+    "homepage": "https://github.com/Trott/slug",
     "author": "dodo (https://github.com/dodo)",
     "repository": {
         "type": "git",
-        "url": "git://github.com/Trott/node-slug.git"
+        "url": "git://github.com/Trott/slug.git"
     },
     "main": "slug.js",
     "keywords": [
@@ -19,22 +19,27 @@
         "url"
     ],
     "scripts": {
-        "test": "./node_modules/.bin/mocha ./test/*.test.* --require should --reporter spec --colors"
+        "test": "standard && nyc --reporter none mocha test/**/*.js && karma start --single-run --browsers ChromeHeadless,FirefoxHeadless .karma.config.js && nyc report --reporter=text --reporter=html && nyc check-coverage --lines 100 --branches 100 --statements 100 --functions 100",
+        "benchmark": "node benchmark/benchmark.js"
     },
-    "dependencies": {
-        "unicode": ">= 0.3.1"
-    },
+    "dependencies": {},
     "devDependencies": {
-        "mocha": "^6.2.1",
-        "should": "~13.2.3"
-    },
-    "bin": {
-        "slug": "bin/slug.js"
+        "chai": "^4.2.0",
+        "karma": "^5.0.9",
+        "karma-chai": "^0.1.0",
+        "karma-chrome-launcher": "^3.1.0",
+        "karma-coverage": "^2.0.2",
+        "karma-firefox-launcher": "^1.3.0",
+        "karma-mocha": "^2.0.1",
+        "mocha": "^8.0.1",
+        "nyc": "^15.0.1",
+        "requirejs": "^2.3.6",
+        "standard": "^14.3.3"
     },
     "licenses": [
         {
             "type": "MIT",
-            "url": "http://github.com/Trott/node-slug/raw/master/LICENSE"
+            "url": "http://github.com/Trott/slug/raw/master/LICENSE"
         }
     ]
 }
